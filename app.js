@@ -1,19 +1,26 @@
 const express = require('express')
 const app = express()
 
-app.get('/', (request, response) => {
-    response.send('Apenas um teste!')
+app.get('/', (req, res) => {
+    res.send('Agora vai!!!')
   })
 
-app.post('/teste', (request, response) => {
-    response.send('segunda categoria!')
+  app.get('/categorias', (req, res) => {
+    res.send('Listar categorias')
   })
 
-app.put('/categorias', (request, response) => {
-    response.send('terceira categoria!')
+  app.post('/categorias', (req, res) => {
+    res.status(201).send('Criando categorias')
   })
 
-  
-app.listen(3333, () => {
-    console.log('Testando servidor!')
-})
+  app.put('/altCategorias', (req, res) => {
+    res.send('Alterar categorias')
+  })
+
+  app.delete('/exCategorias', (req, res) => {
+      res.send('Excluir categoria')
+  })
+
+  app.listen(3000, () => {
+    console.log('Servidor web ok!')
+  })
